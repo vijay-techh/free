@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Tournament - Team L</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1s ease-out;
+        }
+        h2, h3 {
+            color: #28a745;
+            animation: fadeIn 1s ease-out;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            animation: fadeIn 1s ease-out;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            animation: bounceIn 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form input, form select, form button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        form input:focus, form select:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+        form button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            padding: 14px;
+        }
+        form button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        form input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        .form-footer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .form-footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            60% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 600px) {
+            form {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>&#127918; Team L</h1>
+    </header>
+    <main>
+        <img src="img/garena-free-fire-z4.jpg" alt="Free Fire Tournament Image">
+        <h2>Free Fire Tournament</h2>
+        <p>A platform to showcase your talent and test your skills.</p>
+        <p>Experience the excitement, challenge your friends, and win cash prizes!</p>
+
+        <h3>About Free Fire</h3>
+        <p>
+            Free Fire is a popular battle royale game developed by Garena. It features intense 10-minute matches, where players compete to be the last one standing.
+            Players can drop into a remote island, find weapons, gear, and resources, and engage in thrilling combat against others.
+            With a unique character system, players can choose from various characters, each with special abilities that can turn the tide of battle.
+        </p>
+        <p>
+            The game is known for its fast-paced gameplay, vibrant graphics, and a variety of modes including classic battle royale, ranked matches, and special events.
+            Join teams with friends or play solo to improve your skills and ranking.
+        </p>
+        <p>
+            With regular updates, new characters, and seasonal events, Free Fire keeps the excitement alive, making it a favorite among gamers worldwide.
+            Are you ready to showcase your skills and claim victory in our tournament?
+        </p>
+
+        <h3>Register Now!</h3>
+        <div class="form-container">
+            <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="return validateForm()">
+                <input type="hidden" name="access_key" value="52cd516a-ed65-4f1d-a54b-c63807fdef60">
+
+                <input type="text" name="name" placeholder="Username" required>
+                <input type="text" name="team_name" placeholder="Team Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number.">
+                <input type="email" name="email" placeholder="Email Address" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" title="Please enter a valid email address.">
+                <input type="number" name="age" placeholder="Age" required min="13" max="100" title="Age must be between 13 and 100.">
+                <input type="text" name="address" placeholder="Address" required>
+
+                <div>
+                    <input type="checkbox" name="terms" required>
+                    <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
+                </div>
+
+                <!-- Honeypot Spam Protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <button type="submit" id="submitButton">Submit Form</button>
+            </form>
+        </div>
+
+        <div class="form-footer">
+            <p>By submitting, you agree to the tournament's <a href="#">terms and conditions</a>.</p>
+        </div>
+    </main>
+
+    <script>
+        function validateForm() {
+            // Example validation for the terms checkbox
+            const termsChecked = document.querySelector('input[name="terms"]:checked');
+            if (!termsChecked) {
+                alert("You must agree to the terms and conditions before submitting.");
+                return false;
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
